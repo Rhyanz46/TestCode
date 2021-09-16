@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"strconv"
 	"strings"
 	"unicode"
 )
@@ -92,6 +93,53 @@ func ReverseWords(words string) {
 	fmt.Println("\"" + result.String() + "\"")
 }
 
+func NearestFibonacci(data []int) {
+	// sum all list int
+	var max, distance int
+	//var fibSelected int
+	for _, value := range data {
+		max += value
+	}
+
+	// fibonacci
+	fibData := []int{1, 1}
+	for i := 1; true; i++ {
+		stop := false
+		fibValue := fibData[i-1] + fibData[i]
+		fibData = append(fibData, fibValue)
+		currentDistance := max - fibValue
+
+		if fibValue >= max {
+			numberSplit := strings.Split(strconv.Itoa(currentDistance), "-")
+			if len(numberSplit) == 2 {
+				currentDistance = int(^uint32(int32(currentDistance) - 1))
+			}
+			stop = true
+		}
+
+		if i != 1 {
+			if distance > currentDistance {
+				distance = currentDistance
+				//fibSelected = fibValue
+			}
+		} else {
+			distance = currentDistance
+			//fibSelected = fibValue
+		}
+
+		if stop {
+			break
+		}
+	}
+
+	//
+	//fmt.Println("input result :" ,max)
+	//fmt.Println("near from : ", fibSelected)
+	//fmt.Println("distance : ", distance)
+	//fmt.Println("fibData ", fibData)
+	fmt.Println(distance)
+}
+
 func main() {
 	kata := "afa"
 	if Palindrome(kata) {
@@ -102,4 +150,5 @@ func main() {
 
 	LeapYear(1980, 2000)
 	ReverseWords("arN KeRen Banget aa")
+	NearestFibonacci([]int{15, 1, 3})
 }
