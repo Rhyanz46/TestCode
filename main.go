@@ -140,15 +140,35 @@ func NearestFibonacci(data []int) {
 	fmt.Println(distance)
 }
 
+func FizzBuzz(n int) {
+	var result []interface{}
+	for i := 1; i < n; i++ {
+		if i%3 == 0 && i%5 == 0 {
+			result = append(result, "FizzBuzz")
+		} else if i%3 == 0 {
+			result = append(result, "Fizz")
+		} else if i%5 == 0 {
+			result = append(result, "Buzz")
+		} else {
+			result = append(result, i)
+		}
+	}
+	fmt.Println(result)
+}
+
 func main() {
 	kata := "afa"
 	if Palindrome(kata) {
-		fmt.Println(kata + " >> palindrom")
+		fmt.Println(kata + " >> palindrome")
 	} else {
-		fmt.Println(kata + " >> not palindrom")
+		fmt.Println(kata + " >> not palindrome")
 	}
-
+	fmt.Println("--")
 	LeapYear(1980, 2000)
+	fmt.Println("--")
 	ReverseWords("arN KeRen Banget aa")
+	fmt.Println("--")
 	NearestFibonacci([]int{15, 1, 3})
+	fmt.Println("--")
+	FizzBuzz(100)
 }
