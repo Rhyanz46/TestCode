@@ -8,6 +8,8 @@ import (
 	"unicode"
 )
 
+//Do research for what it is. Then make a function that will return true or false
+//to check if they are palindrome.
 func Palindrome(word string) bool {
 	var reverse bytes.Buffer
 	var firstWord, secondWord string
@@ -46,9 +48,10 @@ func LeapYear(firstYear int, secondYear int) {
 
 	for i := firstYear; i <= secondYear; i++ {
 		if i%400 == 0 || i%4 == 0 && i%100 != 0 {
-			fmt.Println(i)
+			fmt.Print(i, " ")
 		}
 	}
+	fmt.Println()
 
 }
 
@@ -157,18 +160,55 @@ func FizzBuzz(n int) {
 }
 
 func main() {
-	kata := "afa"
+	var kata string
+	kata = "Radar"
 	if Palindrome(kata) {
-		fmt.Println(kata + " >> palindrome")
+		fmt.Println(kata + " \t\t\t>> palindrome")
 	} else {
-		fmt.Println(kata + " >> not palindrome")
+		fmt.Println(kata + " \t\t\t>> not palindrome")
 	}
-	fmt.Println("--")
-	LeapYear(1980, 2000)
-	fmt.Println("--")
-	ReverseWords("arN KeRen Banget aa")
-	fmt.Println("--")
+	kata = "Malam"
+	if Palindrome(kata) {
+		fmt.Println(kata + " \t\t\t>> palindrome")
+	} else {
+		fmt.Println(kata + " \t\t\t>> not palindrome")
+	}
+	kata = "Kasur ini rusak"
+	if Palindrome(kata) {
+		fmt.Println(kata + " \t>> palindrome")
+	} else {
+		fmt.Println(kata + " \t>> not palindrome")
+	}
+	kata = "Ibu Ratna antar ubi"
+	if Palindrome(kata) {
+		fmt.Println(kata + " \t>> palindrome")
+	} else {
+		fmt.Println(kata + " \t>> not palindrome")
+	}
+	kata = "Malas"
+	if Palindrome(kata) {
+		fmt.Println(kata + " \t\t\t>> palindrome")
+	} else {
+		fmt.Println(kata + " \t\t\t>> not palindrome")
+	}
+	kata = "Makan nasi goreng"
+	if Palindrome(kata) {
+		fmt.Println(kata + " \t>> palindrome")
+	} else {
+		fmt.Println(kata + " \t>> not palindrome")
+	}
+	kata = "Balonku ada lima"
+	if Palindrome(kata) {
+		fmt.Println(kata + " \t>> palindrome")
+	} else {
+		fmt.Println(kata + " \t>> not palindrome")
+	}
+	fmt.Println("---------------------")
+	LeapYear(1900, 2020)
+	fmt.Println("---------------------")
+	ReverseWords("I am A Great human")
+	fmt.Println("---------------------")
 	NearestFibonacci([]int{15, 1, 3})
-	fmt.Println("--")
-	FizzBuzz(100)
+	fmt.Println("---------------------")
+	FizzBuzz(16)
 }
